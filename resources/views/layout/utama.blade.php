@@ -19,6 +19,9 @@
        folder instead of downloading all of them to reduce the load. -->
   <link rel="stylesheet" href="{{asset('template')}}/dist/css/skins/_all-skins.min.css">
 
+  <link rel="stylesheet" href="{{asset('template')}}/bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css">
+
+
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
   <!--[if lt IE 9]>
@@ -46,14 +49,15 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse pull-left" id="navbar-collapse">
           <ul class="nav navbar-nav">
-            <li class="{{ request()->is('/pelanggan') ? 'active' : ''}}"><a href="#">Tentang</a></li>
-            <li class="{{ request()->is('/admin') ? 'active' : ''}}"><a href="#">Transaksi</a></li>
+            <li class="{{ request()->is('/pelanggan') ? 'active' : ''}}"><a href="/tentang">Tentang</a></li>
+            <li class="{{ request()->is('/pelanggan') ? 'active' : ''}}"><a href="/pesanan">Pesanan</a></li>
+            <li class="{{ request()->is('/admin') ? 'active' : ''}}"><a href="/transaksi">Transaksi</a></li>
             <li class="{{ request()->is('/petugas') ? 'active' : ''}}"><a href="#">Daftar Cuci</a></li>
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">Layanan <span class="caret"></span></a>
               <ul class="dropdown-menu" role="menu">
-                <li class="{{ request()->is('/pelanggan') ? 'active' : ''}}"><a href="#">Cuci Motor</a></li>
-                <li class="{{ request()->is('/pelanggan') ? 'active' : ''}}"><a href="#">Cuci Mobil</a></li>
+                <li class="{{ request()->is('/pelanggan') ? 'active' : ''}}"><a href="/cuci_motor">Cuci Motor</a></li>
+                <li class="{{ request()->is('/pelanggan') ? 'active' : ''}}"><a href="/cuci_mobil">Cuci Mobil</a></li>
               </ul>
             </li>
             <li class="dropdown">
@@ -110,7 +114,10 @@
                     <a href="#" class="btn btn-default btn-flat">Profile</a>
                   </div>
                   <div class="pull-right">
-                    <a href="#" class="btn btn-default btn-flat">Sign out</a>
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                      @csrf
+                      <button type="submit" class="btn btn-default btn-flat">Log out </button>
+                    </form>
                   </div>
                 </li>
               </ul>
@@ -159,5 +166,15 @@
 <script src="{{asset('template')}}/dist/js/adminlte.min.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="{{asset('template')}}/dist/js/demo.js"></script>
+<script src="{{asset('template')}}/bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
+<script>
+  $(function () {
+    $("#datepicker").datepicker({
+      format: 'yyyy/mm/dd',
+      todayHighlight: true,
+      autoclose: true
+    })
+  })
+</script>
 </body>
 </html>

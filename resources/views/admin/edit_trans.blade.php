@@ -31,7 +31,7 @@
                             <div class="form-group">
                                 <label for="inputEmail3" class="col-sm-2 control-label">Paket</label>
                                 <div class="col-sm-3">
-                                    <input type="text" class="form-control" id="paket" name="paket" value="{{ $data_trans->paket }}" readonly>
+                                    <input type="text" class="form-control" id="paket" name="paket" value="{{ $data_trans->id_paket }}" readonly>
                                 </div>
                             </div>
                             <div class="form-group">
@@ -43,13 +43,13 @@
                             <div class="form-group">
                                 <label class="col-sm-2 control-label">Plat Nomor</label>
                                 <div class="col-sm-2">
-                                    <input type="text" class="form-control" id="plat_nomor" name="plat_nomor" value="{{ $data_trans->plat_nomor }}">
+                                    <input type="text" class="form-control" id="plat_nomor" name="plat_nomor" value="{{ $data_trans->plat_nomor }}" readonly>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-sm-2 control-label">Nama</label>
                                 <div class="col-sm-5">
-                                    <input type="text" class="form-control" id="nama_pelanggan" name="nama_pelanggan" value="{{ $data_trans->nama_pelanggan }}">
+                                    <input type="text" class="form-control" id="nama_pelanggan" name="nama_pelanggan" value="{{ $data_trans->nama_pelanggan }}" readonly>
                                 </div>
                             </div>
                     
@@ -59,12 +59,12 @@
                                     <input type="text" class="form-control" id="datepicker" name="datepicker" value="{{ $data_trans->datepicker }}">
                                 </div>
                             </div>
-                            <div class="form-group">
+                            <!--<div class="form-group">
                                 <label class="col-sm-2 control-label">Bukti Bayar</label>
                                 <div class="col-sm-5">
-                                    <input type="file" class="form-control" id="bukti_bayar"name="bukti_bayar" value="{{ $data_trans->bukti_bayar }}">
+                                    <input type="file" class="form-control" id="bukti_image"name="bukti_image" value="{{ $data_trans->bukti_image }}">
                                 </div>
-                            </div>                     
+                            </div> -->                     
 
                             <div class="box-footer">
                                 <button type="submit" class="btn btn-success">Simpan</button>

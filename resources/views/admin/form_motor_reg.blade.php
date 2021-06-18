@@ -7,7 +7,7 @@
 
 </div>
 <div class="row">
-    <form action="/admin/motor_reg/simpan" method="POST" class="form-horizontal">
+    <form action="/admin/motor_reg/simpan" method="POST" class="form-horizontal" enctype="multipart/form-data">
     {{csrf_field()}}
         <div class="form-group">
             <div class="box box-default color-palette-box">
@@ -21,8 +21,20 @@
                         <div class="form-group">
                             <label for="inputEmail3" class="col-sm-2 control-label">Paket</label>
                             <div class="col-sm-3">
-                                <input type="text" class="form-control" id="paket" name="paket" value="Regular Motor" readonly>
+                                <input type="text" class="form-control" id="id_paket" name="id_paket" value="4" readonly>
                             </div>
+                        </div>
+                        <div class="form-group">
+                                <label for="" class="col-sm-2 control-label">Petugas</label>
+                                <div class="col-sm-3">
+                                        <select class="form-control" name="id_petugas" id="id_petugas ">
+                                            <option value="1">Tono </option>
+                                            <option value="2">Budi</option>
+                                            <option value="3">Joko </option>
+                                            <option value="4">Juki</option>
+                                     
+                                        </select>
+                                </div>
                         </div>
                         <div class="form-group">
                             <label for="inputEmail3" class="col-sm-2 control-label">Harga</label>
@@ -52,7 +64,7 @@
                         <div class="form-group">
                             <label class="col-sm-2 control-label">Bukti Bayar</label>
                             <div class="col-sm-5">
-                                <input type="file" class="form-control" id="bukti_bayar"name="bukti_bayar">
+                                <input type="file" class="form-control" id="bukti_image"name="bukti_image">
                             </div>
                             <span class="help-block">Lakukan Pembayaran Untuk Layanan Cuci Reguler Motor Rp.20,000</span>
                             <div class="box-body">

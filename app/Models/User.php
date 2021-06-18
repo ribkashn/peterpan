@@ -20,6 +20,8 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'role',
+        'no_telp',
     ];
 
     /**
@@ -40,5 +42,11 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+    protected $primaryKey = 'id';
     protected $table = 'users';
+
+    //public function transaksi()
+    //{
+    //    return $this->hasOne(Transaksi::class);
+    //}
 }

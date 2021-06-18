@@ -6,6 +6,9 @@
     <p><h3>Transaksi</h3> </p>
 
 </div>
+@if (session("status"))
+    <h6 class="alert alert-success">{{ session("status")}}</h6>
+@endif
 <!-- Small boxes (Stat box) -->
 <div class="row">
         <div class="col-lg-3 col-xs-6">
@@ -99,6 +102,7 @@
                       <th>Petugas</th>
                       <th>Harga</th>
                       <th>Status Pesanan</th>
+                      <th>Bukti Bayar</th>
                       <th>Aksi</th>
                       
                   </tr>
@@ -109,18 +113,21 @@
                       <td>{{ $key->paket}}</td>
                       <td>{{ $key->nama_pelanggan}}</td>
                       <td>{{ $key->datepicker}}</td>
-                      <td></td>
-                      <td>{{ $key->harga}}</td>
+                      <td>{{ $key->nama_petugas}}</td>
+                      <td>Rp.{{ $key->harga}}</td>
                       <td class="text-success"> 
                         @if ($key->status_cuci == 1)
                           Pesanan Diterima
-                            @elseif ($key->status_cuci == 2)
-                              Proses Cuci
-                            @elseif ($key->status_cuci == 3)
-                              Selesai
-                            @else
-                              Pesanan Diproses
+                        @elseif ($key->status_cuci == 2)
+                          Proses Cuci
+                        @elseif ($key->status_cuci == 3)
+                          Selesai
+                        @else
+                          Pesanan Diproses
                         @endif
+                      </td>
+                      <td>
+                      <a href="/uploads/bukti_bayar/{{$key->bukti_image}}" target="_blank" rel="noopener noreferrer">Lihat Bukti Bayar</a>
                       </td>
                       <td>
                         <div class="btn-group">

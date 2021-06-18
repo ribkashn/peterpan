@@ -6,8 +6,11 @@
     <p><h3>Formulir Layanan Cuci Mobil</h3> </p>
 
 </div>
+@if (session("status"))
+    <h6 class="alert alert-success">{{ session("status")}}</h6>
+@endif
 <div class="row">
-    <form action="/mobil_pre/simpan" method="POST" class="form-horizontal">
+    <form action="/mobil_pre/simpan" method="POST" class="form-horizontal" enctype="multipart/form-data">
     {{csrf_field()}}
         <div class="form-group">
             <div class="box box-default color-palette-box">
@@ -21,8 +24,20 @@
                         <div class="form-group">
                             <label for="inputEmail3" class="col-sm-2 control-label">Paket</label>
                             <div class="col-sm-3">
-                                <input type="text" class="form-control" id="paket" name="paket" value="Premium Mobil" readonly>
+                                <input type="text" class="form-control" id="id_paket" name="id_paket" value="2" readonly>
                             </div>
+                        </div>
+                        <div class="form-group">
+                                <label for="" class="col-sm-2 control-label">Petugas</label>
+                                <div class="col-sm-3">
+                                        <select class="form-control" name="id_petugas" id="id_petugas ">
+                                            <option value="1">Tono </option>
+                                            <option value="2">Budi</option>
+                                            <option value="3">Joko </option>
+                                            <option value="4">Juki</option>
+                                     
+                                        </select>
+                                </div>
                         </div>
                         <div class="form-group">
                             <label for="inputEmail3" class="col-sm-2 control-label">Harga</label>
@@ -30,6 +45,7 @@
                                 <input type="text" class="form-control" id="harga" name="harga" value="Rp.70,000" readonly>
                             </div>
                         </div>
+                        
                         <div class="form-group">
                             <label class="col-sm-2 control-label">Plat Nomor</label>
                             <div class="col-sm-2">
@@ -42,6 +58,12 @@
                                 <input type="text" class="form-control" id="nama_pelanggan" name="nama_pelanggan" placeholder="Nama">
                             </div>
                         </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Tips</label>
+                            <div class="col-sm-5">
+                                <input type="text" class="form-control" id="tips" name="tips" placeholder="Tips">
+                            </div>
+                        </div>
                 
                         <div class="form-group">
                             <label class="col-sm-2 control-label">Tanggal Cuci</label>
@@ -52,7 +74,7 @@
                         <div class="form-group">
                             <label class="col-sm-2 control-label">Bukti Bayar</label>
                             <div class="col-sm-5">
-                                <input type="file" class="form-control" id="bukti_bayar"name="bukti_bayar">
+                                <input type="file" class="form-control" id="bukti_image"name="bukti_image">
                             </div>
                             <span class="help-block">Lakukan Pembayaran Untuk Layanan Cuci Premium Mobil Rp.70,000</span>
                             <div class="box-body">

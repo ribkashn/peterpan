@@ -40,7 +40,7 @@
     <nav class="navbar navbar-static-top">
       <div class="container">
         <div class="navbar-header">
-          <a href="{{asset('template')}}/index2.html" class="navbar-brand"><b>CarWash</b> N R</a>
+          <a href="#" class="navbar-brand"><b>CarWash</b> N R</a>
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
             <i class="fa fa-bars"></i>
           </button>
@@ -52,7 +52,7 @@
             <li class="{{ request()->is('/pelanggan') ? 'active' : ''}}"><a href="/tentang">Tentang</a></li>
             <li class="{{ request()->is('/pelanggan') ? 'active' : ''}}"><a href="/pesanan">Pesanan</a></li>
             <li class="{{ request()->is('/admin') ? 'active' : ''}}"><a href="/transaksi">Transaksi</a></li>
-            <li class="{{ request()->is('/petugas') ? 'active' : ''}}"><a href="#">Daftar Cuci</a></li>
+            <li class="{{ request()->is('/petugas') ? 'active' : ''}}"><a href="/daftar_cuci">Daftar Cuci</a></li>
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">Layanan <span class="caret"></span></a>
               <ul class="dropdown-menu" role="menu">
@@ -63,10 +63,11 @@
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">Data <span class="caret"></span></a>
               <ul class="dropdown-menu" role="menu">
-                <li class="{{ request()->is('/admin') ? 'active' : ''}}"><a href="#">Data Pelanggan</a></li>
-                <li class="{{ request()->is('/admin') ? 'active' : ''}}"><a href="#">Data Petugas</a></li>
-                <li class="{{ request()->is('/admin') ? 'active' : ''}}"><a href="#">Data Laporan | Master</a></li>
-                <li class="{{ request()->is('/petugas') ? 'active' : ''}}"><a href="#">Data Laporan </a></li>
+                <!--<li class="{{ request()->is('/admin') ? 'active' : ''}}"><a href="#">Data Pelanggan</a></li> -->
+                <li class="{{ request()->is('/admin') ? 'active' : ''}}"><a href="/data_petugas">Data User</a></li>
+                <li class="{{ request()->is('/admin') ? 'active' : ''}}"><a href="/laporan/transaksi">Data Laporan | Master</a></li>
+                <li class="{{ request()->is('/admin') ? 'active' : ''}}"><a href="/detail_gaji">Penggajian</a></li>
+                <li class="{{ request()->is('/petugas') ? 'active' : ''}}"><a href="/laporan_petugas">Data Laporan </a></li>
               </ul>
             </li>
           </ul>

@@ -42,11 +42,48 @@ Route::group(['middleware' => 'admin'], function (){
     Route::get('/transaksi/edit_trans/{id_trans}',[AdminController::class,'edit']); // edit data kp  
     Route::post('/transaksi/update/{id_trans}',[AdminController::class,'update']); // simpan edit  data transaksi  
     Route::get('/transaksi/delete_trans/{id_trans}',[AdminController::class,'delete']); // hapus data transaksi  
+    // tambah data user
+    Route::get('/data_petugas',[AdminController::class,'data_petugas']);
+    Route::get('/data_petugas/input',[AdminController::class,'input_petugas']);
+    Route::post('/data_petugas/simpan',[AdminController::class,'simpan_petugas']);
+    Route::get('/data_petugas/delete_petugas/{id}',[AdminController::class,'hapus']);
+    //laporan
+    Route::get('/laporan/transaksi',[AdminController::class,'laporan']);
+    Route::post('/laporan/transaksi',[AdminController::class,'laporan']);
+    Route::get('/transaksi/export', [AdminController::class,'transaksiexport']);
+    // laporan petugas
+    Route::get('/laporan/petugas',[AdminController::class,'laporanPetugas']);
+    Route::post('/laporan/petugas',[AdminController::class,'laporanPetugas']);
+    Route::get('/petugas/export/', [AdminController::class,'petugasexport']);
+    //Rating
+    
+    //Route::get('/laporpetugas',[AdminController::class,'laporanPetugas']);
+    //Route::post('/laporpetugas',[AdminController::class,'laporanPetugas']);
+
+    //Route::get('/laporan',[AdminController::class,'laporan']);
+    Route::get('/laporan_pelanggan',[AdminController::class,'laporan_count']);
+    // gaji
+    Route::get('/detail_gaji',[AdminController::class,'detailgaji']);
+    Route::get('/detail_gaji/edit_gaji/{id}',[AdminController::class,'editgaji']);
+    Route::post('/detail_gaji/update/{id}',[AdminController::class,'updategaji']);
+
+   
+    //export excel
+    //Route::post('/transaksiexport',[AdminController::class,'transaksiexport']);
+    //Route::get('/petugasexport',[AdminController::class,'petugasexport']);
 });
 
 //petugas
 Route::group(['middleware' => 'petugas'], function (){
     Route::get('/petugas',[PetugasController::class,'index']);
+    Route::get('/laporan_petugas',[PetugasController::class,'laporan']);
+    Route::get('/daftar_cuci',[PetugasController::class,'daftar_cuci']);
+
+    Route::get('/daftar_cuci/edit_cuci/{id_trans}',[PetugasController::class,'editCuci']); // edit data kp  
+    Route::post('/daftar_cuci/update/{id_trans}',[PetugasController::class,'updateCuci']);
+    // laporan
+    Route::get('/laporan_petugas',[PetugasController::class,'laporan']);
+    Route::post('/laporan_petugas',[PetugasController::class,'laporan']);
 });
 //pelanggan
 Route::group(['middleware' => 'pelanggan'], function (){
@@ -67,4 +104,7 @@ Route::group(['middleware' => 'pelanggan'], function (){
     //form input mobil premium
     Route::get('/mobil_pre/input',[PelangganController::class,'input_mobil_pre']);
     Route::post('/mobil_pre/simpan',[PelangganController::class,'simpan']);
+    //rating
+    Route::get('/rating/edit_rating/{id_trans}',[PelangganController::class,'editRating']); // edit data kp  
+    Route::post('/rating/update/{id_trans}',[PelangganController::class,'updateRating']);
 });
